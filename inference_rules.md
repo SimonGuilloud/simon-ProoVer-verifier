@@ -6,6 +6,7 @@
 * Cut
 * And
 * Or
+* Equality
 * CNF
 * Skolemization (Geoff's specified format:  https://tptp.org/UserDocs/QuickGuide/Derivations.html)
 * See more proof by E.

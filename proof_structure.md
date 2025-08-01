@@ -2,7 +2,7 @@
 This file details the structure of the proofs used in the competition.
 
 ## Proof Structure 
-* Leaves are axioms and the negated conjecture
+* Leaves are the axioms and the negated conjecture.
 * A proof is a directed acyclic graph.
 * All proofs are proof by refutation, i.e., negating the conjecture, and ending at $false.
 * A proof consists in a sequence of inference steps.
@@ -15,6 +15,7 @@ This file details the structure of the proofs used in the competition.
 * All proof steps will have role axiom, conjecture, negated_conjecture, or plain.
 * All proof steps will have status(thm).
 * Some inference steps are specified [here](inference_rules.md), and all the other are free.
+* No sequent calculus.
 
 ## Specified Proof Steps
 * Skolemization (Geoff's specified format):  https://tptp.org/UserDocs/QuickGuide/Derivations.html

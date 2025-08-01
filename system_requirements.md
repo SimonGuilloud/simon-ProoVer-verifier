@@ -6,7 +6,7 @@
 * Systems can use an internal trusted prover or check every sep --- but you have to figure ou the steps that can be used by yourself :)
 * The check must check that the proof correspond to the problem file
 * Executable must include external tools
-* You can use an external ATP for verify non-specified proof steps.
+* You can use an external ATP for verify non-specified proof steps, but it's your responsibility to trust it.
 
 ## Output
 * %SZS Proof Checked
