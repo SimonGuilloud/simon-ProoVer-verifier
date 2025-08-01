@@ -1,7 +1,7 @@
 # Evil Proofs
 
 ## What is an Evil Proof?
-* One error per proof only
+* One error per proof only?
 
 ## How to Make a Proof Evil?
 * Remove hypothesis/axiom
