@@ -8,3 +8,4 @@
 * Competitions for student -> all rules specified, cnf, etc
 * Grading scheme 
 * List of rules -> Michael's big list of 400 proof steps
+
