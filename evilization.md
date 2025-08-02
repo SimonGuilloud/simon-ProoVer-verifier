@@ -19,3 +19,5 @@
 * Not topologically sorted
 * Use conjecture and negated conjecture
 * ! -> ?
+* Look at Vampire's Github for ideas
+* Use skolem symbol before its introduction

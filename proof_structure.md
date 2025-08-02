@@ -19,5 +19,6 @@ This file details the structure of the proofs used in the competition.
 
 ## Specified Proof Steps
 * Skolemization (Geoff's specified format):  https://tptp.org/UserDocs/QuickGuide/Derivations.html
+* Sko: esa ou just sat?
 * NNF (how?)
 * CNF (how?)
