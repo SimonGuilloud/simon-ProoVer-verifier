@@ -10,7 +10,7 @@ fof(bride,plain,
     ! [Marriage] :
     ? [Groom] :
       in_love(Groom,sK0(Marriage)),
-    inference(skolemize,[status(esa),skolemized(Bride),bind(Bride,sK0(Marriage))],[marriage]) ).
+    inference(skolemize,[status(esa),new_symbols(skolem,[sK0]),skolemized(Bride),bind(Bride,sK0(Marriage))],[marriage]) ).
     
 %----Skolemize Groom, new symbol sK1 recorded here.
 fof(groom,plain,
