@@ -19,5 +19,18 @@
 * Not topologically sorted
 * Use conjecture and negated conjecture
 * ! -> ?
-* Look at Vampire's Github for ideas
+* Look at Vampire's Github for ideas -> bugs
 * Use skolem symbol before its introduction
+* Pas de preuve cyclic
+* Symbol de skolem must be fresh
+
+
+## Preuves
+* 10 preuves correctes et simples
+* 10 vraiment fausses
+* Très grosses preuves vraies et fausses (10/50/100/1000/10000 (5))
+* Notre proof checker : SC-TPTP?
+* Générer preuves avec gogo? 
+* Que des THM en entrée
+* Preuve a /\ ~a
+* a v b -> a, b nope
