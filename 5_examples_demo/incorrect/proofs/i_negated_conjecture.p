@@ -1,4 +1,2 @@
-fof(a1, axiom, p(a)).
-fof(c, conjecture, ![X] : (p(X))).
 fof(s1, negated_conjecture, ![X] : (~p(X)), inference(negated_conjecture, [status(cth)], [c])).
 fof(f1, plain, $false, inference(consequence, [status(thm)], [s1, a1])).
