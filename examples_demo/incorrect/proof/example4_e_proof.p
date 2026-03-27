@@ -1,23 +1,19 @@
-% SZS output start ListOfFormulae
-%----At every marriage, there is a bride and groom who are in love
-fof(marriage, axiom, 
+% SZS output start Prooffof(marriage, axiom, 
     ! [Marriage] :
     ? [Bride] :
     ? [Groom] :
-    in_love(Groom, Bride)).
+    in_love(Groom, Bride), file('example4_e.p',marriage)).
 
 %----There exists at least one marriage
 fof(exists_marriage, axiom, 
-    is_marriage(m0)).
+    is_marriage(m0), file('example4_e.p',exists_marriage)).
 
 %----Conjecture: someone is in love
 fof(c, conjecture, 
     ? [X] :
     ? [Y] :
-    in_love(X, Y)).
-% SZS output end ListOfFormulae
+    in_love(X, Y), file('example4_e.p',conjecture)).
 
-% SZS output start Proof
 %----Negate conjecture: nobody is in love
 fof(neg_c, negated_conjecture, 
     ~(? [X] :
