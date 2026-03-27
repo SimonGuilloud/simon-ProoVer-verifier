@@ -1,2 +1,0 @@
-fof(s1, negated_conjecture, ![X] : (p(X) => ![Y] : (p(Y))), inference(negated_conjecture, [status(cth)], [c])).
-fof(f1, plain, $false, inference(consequence, [status(thm)], [s1, a1])).

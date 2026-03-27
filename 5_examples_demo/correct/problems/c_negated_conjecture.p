@@ -1,3 +1,0 @@
-fof(a1, axiom, p(a) & ~p(b)).
-fof(c, conjecture, ?[X] : ~(p(X) => ![Y] : (p(Y)))).
-
