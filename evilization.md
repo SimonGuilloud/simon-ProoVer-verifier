@@ -23,6 +23,7 @@
 * Use skolem symbol before its introduction
 * Pas de preuve cyclic
 * Symbol de skolem must be fresh
+* Wrong status skoelmize
 
 
 ## Preuves
