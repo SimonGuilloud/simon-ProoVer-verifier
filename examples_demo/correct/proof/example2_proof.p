@@ -1,3 +1,10 @@
+%------------------------------------------------------------------------------
+% File     : example2_proof : ProoVer 2026
+% Proof    : ../problem/example2_c.p
+% Source   : ProoVer 2026
+% Status   : Unknown
+% SPC      : FOF_UNK_RFO_NEQ
+%------------------------------------------------------------------------------
 % SZS output start Proof
 fof(a1, axiom, ![X]: (p(X) => p(f(X))), file('example2_c.p',ax1)).
 fof(a2, axiom, p(a), file('example2_c.p',ax2)).

@@ -1,3 +1,10 @@
+%------------------------------------------------------------------------------
+% File     : example3_proof : ProoVer 2026
+% Proof    : ../problem/example3_c.p
+% Source   : ProoVer 2026
+% Status   : Unknown
+% SPC      : FOF_UNK_RFO_NEQ
+%------------------------------------------------------------------------------
 % SZS output start Proof
 %----At every marriage, there is a bride and groom who are in love
 fof(marriage, axiom, 

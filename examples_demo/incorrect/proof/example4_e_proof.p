@@ -1,4 +1,12 @@
-% SZS output start Prooffof(marriage, axiom, 
+%------------------------------------------------------------------------------
+% File     : example4_e_proof : ProoVer 2026
+% Proof    : ../problem/example4_e.p
+% Source   : ProoVer 2026
+% Status   : Unknown
+% SPC      : FOF_UNK_RFO_NEQ
+%------------------------------------------------------------------------------
+% SZS output start Proof
+fof(marriage, axiom, 
     ! [Marriage] :
     ? [Bride] :
     ? [Groom] :

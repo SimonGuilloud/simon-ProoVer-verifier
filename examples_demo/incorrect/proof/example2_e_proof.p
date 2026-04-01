@@ -1,3 +1,10 @@
+%------------------------------------------------------------------------------
+% File     : example2_e_proof : ProoVer 2026
+% Proof    : ../problem/example2_e.p
+% Source   : ProoVer 2026
+% Status   : Unknown
+% SPC      : FOF_UNK_RFO_PEQ
+%------------------------------------------------------------------------------
 % SZS output start Proof
 fof(a1, axiom, ![X] : (f(f(X)) = f(g(X)) | g(f(X)) = f(f(X))), file('example2_e.p',a1)).
 fof(c, conjecture, g(f(a)) = f(g(a)), file('example2_e.p',c)).
