@@ -10,7 +10,6 @@
 
 ## Output
 * %SZS Proof Checked
-* Must output at which step an error happens: %SZS Proof Error at step X
 
 ## System Delivery
 
