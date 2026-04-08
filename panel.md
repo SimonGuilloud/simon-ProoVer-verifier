@@ -1,12 +1,6 @@
 # Panel
 The role of the panel is to provide some advices about proof evilization, proof granularity, and so on.
 
-Three wise people, e.g.,
-+ Dale Miller
-+ Frederic Blanqui (but he might want to be an entrant)
-+ Viktor Kuncak
-+ Dirk Beyer
-+ Armin Biere
-+ Helmert Malte
-+ Haniel Barbosa
-+ Magnus Myreen
++ Claudia Nalon (done it for several years, very responsive)
++ Aart Middeldorp (done it before, understands competitions from his involvement with CoCo)
++ Martina Seidl (new blood, senior enough by now)
