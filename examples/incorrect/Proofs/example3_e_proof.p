@@ -1,26 +1,27 @@
 %------------------------------------------------------------------------------
-% File     : example4_e_proof : ProoVer 2026
-% Proof    : ../problem/example4_e.p
+% File     : example3_e_proof : ProoVer 2026
+% Proof    : Problems/example3_e.p
 % Source   : ProoVer 2026
 % Status   : Unknown
 % SPC      : FOF_UNK_RFO_NEQ
 %------------------------------------------------------------------------------
 % SZS output start Proof
+%----At every marriage, there is a bride and groom who are in love
 fof(marriage, axiom, 
     ! [Marriage] :
     ? [Bride] :
     ? [Groom] :
-    in_love(Groom, Bride), file('example4_e.p',marriage)).
+    in_love(Groom, Bride), file('Problems/example3_e.p',marriage)).
 
 %----There exists at least one marriage
 fof(exists_marriage, axiom, 
-    is_marriage(m0), file('example4_e.p',exists_marriage)).
+    is_marriage(m0), file('Problems/example3_e.p',exists_marriage)).
 
 %----Conjecture: someone is in love
 fof(c, conjecture, 
     ? [X] :
     ? [Y] :
-    in_love(X, Y), file('example4_e.p',conjecture)).
+    in_love(X, Y), file('Problems/example3_e.p',conjecture)).
 
 %----Negate conjecture: nobody is in love
 fof(neg_c, negated_conjecture, 
@@ -35,15 +36,15 @@ fof(bride,plain,
       in_love(Groom,sK0(Marriage)),
     inference(skolemize, [status(esa), new_symbols(skolem, [sK0]), skolemized(Bride), bind(Bride, sK0(Marriage))], [marriage])).
 
-%----Skolemize Groom 
+%----Skolemize Groom     
 fof(groom,plain,
     ! [Marriage] :
-      in_love(Marriage,sK0(Marriage)),
-    inference(skolemize, [status(esa), new_symbols(skolem, [sK1]), skolemized(Groom), bind(Groom, sK1(Marriage))], [bride])).
+      in_love(sK0(Marriage),sK0(Marriage)),
+    inference(skolemize,[status(esa), new_symbols(skolem, [sK0]), skolemized(Groom), bind(Groom, sK0(Marriage))], [bride])).
 
 %----Instantiate at the known marriage m0
 fof(groom_m0, plain, 
-    in_love(m0, sK0(m0)), inference(instantiate, [status(thm)], [groom])).
+    in_love(sK0(m0), sK0(m0)), inference(instantiate, [status(thm)], [groom])).
 
 %----Contradiction
 fof(contradiction, plain, 

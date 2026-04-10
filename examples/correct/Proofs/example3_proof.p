@@ -1,6 +1,6 @@
 %------------------------------------------------------------------------------
 % File     : example3_proof : ProoVer 2026
-% Proof    : ../problem/example3_c.p
+% Proof    : Problems/example3_c.p
 % Source   : ProoVer 2026
 % Status   : Unknown
 % SPC      : FOF_UNK_RFO_NEQ
@@ -11,17 +11,17 @@ fof(marriage, axiom,
     ! [Marriage] :
     ? [Bride] :
     ? [Groom] :
-    in_love(Groom, Bride), file('example3_c.p',marriage)).
+    in_love(Groom, Bride), file('Problems/example3_c.p',marriage)).
 
 %----There exists at least one marriage
 fof(exists_marriage, axiom, 
-    is_marriage(m0), file('example3_c.p',exists_marriage)).
+    is_marriage(m0), file('Problems/example3_c.p',exists_marriage)).
 
 %----Conjecture: someone is in love
 fof(c, conjecture, 
     ? [X] :
     ? [Y] :
-    in_love(X, Y), file('example3_c.p',conjecture)).
+    in_love(X, Y), file('Problems/example3_c.p',conjecture)).
 
 %----Negate conjecture: nobody is in love
 fof(neg_c, negated_conjecture, 
