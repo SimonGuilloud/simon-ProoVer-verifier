@@ -33,12 +33,12 @@ fof(neg_c, negated_conjecture,
 fof(bride, plain, 
     ! [Marriage] :
     ? [Groom] :
-    in_love(Groom, sK0(Marriage)), inference(skolemize, [status(esa), new_symbols(skolem, [sK0]), skolemized(Bride), bind(Bride, sK0(Marriage))], [marriage])).
+    in_love(Groom, sK0(Marriage)), inference(skolemize, [status(esa), new_symbols(skolem, [sK0]), skolemize(Bride, sK0(Marriage))], [marriage])).
 
 %----Skolemize Groom
 fof(groom, plain, 
     ! [Marriage] :
-    in_love(sK1(Marriage), sK0(Marriage)), inference(skolemize, [status(esa), new_symbols(skolem, [sK1]), skolemized(Groom), bind(Groom, sK1(Marriage))], [bride])).
+    in_love(sK1(Marriage), sK0(Marriage)), inference(skolemize, [status(esa), new_symbols(skolem, [sK1]), skolemize(Groom, sK1(Marriage))], [bride])).
 
 %----Instantiate at the known marriage m0
 fof(groom_m0, plain, 
