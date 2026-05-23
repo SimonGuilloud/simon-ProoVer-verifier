@@ -20,7 +20,7 @@ fof(exists_marriage, axiom,
 fof(c, conjecture, 
     ? [X] :
     ? [Y] :
-    in_love(X, Y), file('Problems/example4_e.p',conjecture)).
+    in_love(X, Y), file('Problems/example4_e.p',c)).
 
 %----Negate conjecture: nobody is in love
 fof(neg_c, negated_conjecture, 
