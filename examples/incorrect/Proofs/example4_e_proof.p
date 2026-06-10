@@ -12,9 +12,6 @@ fof(marriage, axiom,
     ? [Groom] :
     in_love(Groom, Bride), file('Problems/example4_e.p',marriage)).
 
-%----There exists at least one marriage
-fof(exists_marriage, axiom, 
-    is_marriage(m0), file('Problems/example4_e.p',exists_marriage)).
 
 %----Conjecture: someone is in love
 fof(c, conjecture, 
