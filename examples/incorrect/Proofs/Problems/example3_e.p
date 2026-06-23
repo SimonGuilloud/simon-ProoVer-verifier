@@ -1,5 +1,5 @@
 %------------------------------------------------------------------------------
-% File     : example3_c : ProoVer 2026
+% File     : example3_e : ProoVer 2026
 % Source   : ProoVer 2026
 % Status   : Unknown
 % SPC      : FOF_UNK_RFO_NEQ
@@ -11,10 +11,6 @@ fof(marriage, axiom,
     ? [Bride] :
     ? [Groom] :
     in_love(Groom, Bride)).
-
-%----There exists at least one marriage
-fof(exists_marriage, axiom, 
-    is_marriage(m0)).
 
 %----Conjecture: someone is in love
 fof(c, conjecture, 
