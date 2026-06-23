@@ -9,7 +9,11 @@
 * You can use an external ATP for verify non-specified proof steps, but it's your responsibility to trust it.
 
 ## Output
-* %SZS Proof Checked
+* Exactly one SZS status line per problem:
+  * `%SZS status Verified`       --- the proof is valid
+  * `%SZS status FailedVerified` --- the proof is invalid
+  * `%SZS status NotVerified`    --- the checker could not decide
+* Optional clarifications may follow on the same line after a colon.
 
 ## System Delivery
 
