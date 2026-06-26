@@ -1,0 +1,3 @@
+[submodule "vendor/vampire"]
+	path = vendor/vampire
+	url = git@github.com:vprover/vampire.git
