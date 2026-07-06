@@ -1,12 +1,12 @@
 # DTF print files — ProoVer 2026 (navy hand fans)
 
 Print-ready artwork for DTF (Direct-to-Film) on **COD.55 navy hand fans**,
-max print area **10 × 10 cm**.
+print size **10 × 7.5 cm** (4:3).
 
 ## Files to send to the printer
 
-- **`proover_dtf_arial.png`** — recommended. 1181 × 1181 px, transparent
-  background (RGBA), = 10.0 cm at 300 DPI.
+- **`proover_dtf_arial.png`** — recommended. 1181 × 886 px, transparent
+  background (RGBA), = 10 × 7.5 cm at 300 DPI.
 - `proover_dtf_serif.png` — same, serif title (thinner strokes; slightly more
   fragile at this size).
 - `proover_dtf_{arial,serif}.svg` — vector source, in case the printer prefers
@@ -20,8 +20,8 @@ max print area **10 × 10 cm**.
 
 | Property        | Value                                              |
 |-----------------|----------------------------------------------------|
-| Print size      | 10 × 10 cm (max)                                   |
-| Resolution      | 300 DPI → 1181 × 1181 px                           |
+| Print size      | 10 × 7.5 cm (4:3)                                  |
+| Resolution      | 300 DPI → 1181 × 886 px                            |
 | Background      | Transparent (only artwork prints; fan = backdrop)  |
 | Garment         | Navy — required; design needs a dark backdrop      |
 | Colours         | White + pale blue (CMYK-safe; printer RIP → CMYK)  |
@@ -34,10 +34,10 @@ cd 2026/logo
 # square, transparent, no glow, title fitted to width:
 python3 generate_logo.py --theme blue --font arial \
     --transparent --no-glow --fit-title \
-    --width 1000 --height 1000 -o print/proover_dtf_arial.svg
+    --width 1000 --height 750 -o print/proover_dtf_arial.svg
 ```
 
-Then rasterize to 1181 px (10 cm @ 300 DPI) with a headless browser,
+Then rasterize to 1181 × 886 px (10 × 7.5 cm @ 300 DPI) with a headless browser,
 `rsvg-convert -w 1181`, `inkscape`, or `cairosvg`. For a different size,
 render at `cm / 2.54 * 300` px (e.g. 12 cm → 1417 px).
 
