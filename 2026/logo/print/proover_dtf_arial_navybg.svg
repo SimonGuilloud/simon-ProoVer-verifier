@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1181" height="886"
+     viewBox="0 0 1181 886" font-family="'DejaVu Sans Mono','Noto Sans Symbols2',monospace">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#12325e"/>
+      <stop offset="100%" stop-color="#040a18"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#040a18" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#040a18" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#040a18" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- background -->
+  <rect width="1181" height="886" fill="url(#bg)"/>
+
+  <!-- matrix rain of logical symbols -->
+  <g text-anchor="middle">
+    <text x="39" y="93" font-size="24" fill="#ffffff" opacity="1.0">∉</text>
+    <text x="39" y="62" font-size="24" fill="#91b9f9" opacity="0.885">⊤</text>
+    <text x="39" y="31" font-size="24" fill="#8cb3f4" opacity="0.849">∎</text>
+    <text x="39" y="0" font-size="24" fill="#87aeee" opacity="0.814">ψ</text>
+    <text x="91" y="217" font-size="24" fill="#ffffff" opacity="1.0">Δ</text>
+    <text x="91" y="186" font-size="24" fill="#91b9fa" opacity="0.886">⊭</text>
+    <text x="91" y="155" font-size="24" fill="#8cb4f4" opacity="0.852">≤</text>
+    <text x="91" y="124" font-size="24" fill="#88aeef" opacity="0.818">≡</text>
+    <text x="91" y="93" font-size="24" fill="#83a9e9" opacity="0.784">∀</text>
+    <text x="91" y="62" font-size="24" fill="#7ea4e4" opacity="0.75">∈</text>
+    <text x="91" y="31" font-size="24" fill="#799fde" opacity="0.717">∧</text>
+    <text x="91" y="0" font-size="24" fill="#7599d9" opacity="0.683">∪</text>
+    <text x="117" y="713" font-size="24" fill="#ffffff" opacity="1.0">≤</text>
+    <text x="117" y="682" font-size="24" fill="#8ab1f1" opacity="0.833">∀</text>
+    <text x="117" y="651" font-size="24" fill="#7ea3e3" opacity="0.747">Δ</text>
+    <text x="117" y="620" font-size="24" fill="#7196d5" opacity="0.66">∅</text>
+    <text x="117" y="589" font-size="24" fill="#6589c7" opacity="0.573">⊥</text>
+    <text x="117" y="558" font-size="24" fill="#597bba" opacity="0.487">◇</text>
+    <text x="117" y="527" font-size="24" fill="#4d6eac" opacity="0.4">⊆</text>
+    <text x="117" y="496" font-size="24" fill="#40619e" opacity="0.313">∴</text>
+    <text x="117" y="465" font-size="24" fill="#345390" opacity="0.227">∴</text>
+    <text x="143" y="682" font-size="24" fill="#ffffff" opacity="1.0">Φ</text>
+    <text x="143" y="651" font-size="24" fill="#90b7f8" opacity="0.877">⊨</text>
+    <text x="143" y="620" font-size="24" fill="#8ab1f1" opacity="0.833">λ</text>
+    <text x="143" y="589" font-size="24" fill="#84aaea" opacity="0.79">∈</text>
+    <text x="143" y="558" font-size="24" fill="#7ea3e3" opacity="0.747">ψ</text>
+    <text x="143" y="527" font-size="24" fill="#779ddc" opacity="0.703">φ</text>
+    <text x="143" y="496" font-size="24" fill="#7196d5" opacity="0.66">∪</text>
+    <text x="143" y="465" font-size="24" fill="#6b8fce" opacity="0.617">∪</text>
+    <text x="143" y="434" font-size="24" fill="#6589c7" opacity="0.573">≥</text>
+    <text x="143" y="403" font-size="24" fill="#5f82c0" opacity="0.53">¬</text>
+    <text x="143" y="372" font-size="24" fill="#597bba" opacity="0.487">⊬</text>
+    <text x="143" y="341" font-size="24" fill="#5375b3" opacity="0.443">∩</text>
+    <text x="143" y="310" font-size="24" fill="#4d6eac" opacity="0.4">∃</text>
+    <text x="143" y="279" font-size="24" fill="#4767a5" opacity="0.357">∵</text>
+    <text x="143" y="248" font-size="24" fill="#40619e" opacity="0.313">∵</text>
+    <text x="143" y="217" font-size="24" fill="#3a5a97" opacity="0.27">≥</text>
+    <text x="143" y="186" font-size="24" fill="#345390" opacity="0.227">≠</text>
+    <text x="143" y="155" font-size="24" fill="#2e4d89" opacity="0.183">∈</text>
+    <text x="195" y="248" font-size="24" fill="#ffffff" opacity="1.0">Δ</text>
+    <text x="195" y="217" font-size="24" fill="#91b9fa" opacity="0.886">∧</text>
+    <text x="195" y="186" font-size="24" fill="#8cb4f4" opacity="0.852">≠</text>
+    <text x="195" y="155" font-size="24" fill="#88aeef" opacity="0.818">Φ</text>
+    <text x="195" y="124" font-size="24" fill="#83a9e9" opacity="0.784">∎</text>
+    <text x="195" y="93" font-size="24" fill="#7ea4e4" opacity="0.75">Δ</text>
+    <text x="195" y="62" font-size="24" fill="#799fde" opacity="0.717">◇</text>
+    <text x="195" y="31" font-size="24" fill="#7599d9" opacity="0.683">Ψ</text>
+    <text x="195" y="0" font-size="24" fill="#7094d4" opacity="0.649">⊆</text>
+    <text x="221" y="775" font-size="24" fill="#ffffff" opacity="1.0">⊬</text>
+    <text x="221" y="744" font-size="24" fill="#90b8f8" opacity="0.879">Γ</text>
+    <text x="221" y="713" font-size="24" fill="#8ab1f2" opacity="0.838">Φ</text>
+    <text x="221" y="682" font-size="24" fill="#85abeb" opacity="0.797">Ψ</text>
+    <text x="221" y="651" font-size="24" fill="#7fa5e5" opacity="0.756">∃</text>
+    <text x="221" y="620" font-size="24" fill="#799ede" opacity="0.715">⊬</text>
+    <text x="221" y="589" font-size="24" fill="#7398d8" opacity="0.674">⊤</text>
+    <text x="221" y="558" font-size="24" fill="#6d92d1" opacity="0.633">∨</text>
+    <text x="221" y="527" font-size="24" fill="#688bca" opacity="0.592">⊢</text>
+    <text x="221" y="496" font-size="24" fill="#6285c4" opacity="0.551">Ψ</text>
+    <text x="221" y="465" font-size="24" fill="#5c7fbd" opacity="0.509">∉</text>
+    <text x="221" y="434" font-size="24" fill="#5679b7" opacity="0.468">≠</text>
+    <text x="221" y="403" font-size="24" fill="#5172b0" opacity="0.427">Γ</text>
+    <text x="221" y="372" font-size="24" fill="#4b6ca9" opacity="0.386">¬</text>
+    <text x="221" y="341" font-size="24" fill="#4566a3" opacity="0.345">Γ</text>
+    <text x="221" y="310" font-size="24" fill="#3f5f9c" opacity="0.304">⊤</text>
+    <text x="221" y="279" font-size="24" fill="#395996" opacity="0.263">∧</text>
+    <text x="221" y="248" font-size="24" fill="#34538f" opacity="0.222">≥</text>
+    <text x="221" y="217" font-size="24" fill="#2e4c89" opacity="0.181">Γ</text>
+    <text x="247" y="496" font-size="24" fill="#ffffff" opacity="1.0">⊆</text>
+    <text x="247" y="465" font-size="24" fill="#91b9fa" opacity="0.886">ψ</text>
+    <text x="247" y="434" font-size="24" fill="#8cb4f4" opacity="0.852">◇</text>
+    <text x="247" y="403" font-size="24" fill="#88aeef" opacity="0.818">∩</text>
+    <text x="247" y="372" font-size="24" fill="#83a9e9" opacity="0.784">ψ</text>
+    <text x="247" y="341" font-size="24" fill="#7ea4e4" opacity="0.75">Φ</text>
+    <text x="247" y="310" font-size="24" fill="#799fde" opacity="0.717">Γ</text>
+    <text x="247" y="279" font-size="24" fill="#7599d9" opacity="0.683">◇</text>
+    <text x="247" y="248" font-size="24" fill="#7094d4" opacity="0.649">≠</text>
+    <text x="247" y="217" font-size="24" fill="#6b8fce" opacity="0.615">⊃</text>
+    <text x="247" y="186" font-size="24" fill="#668ac9" opacity="0.581">∪</text>
+    <text x="247" y="155" font-size="24" fill="#6185c3" opacity="0.547">⊂</text>
+    <text x="247" y="124" font-size="24" fill="#5d7fbe" opacity="0.513">∀</text>
+    <text x="247" y="93" font-size="24" fill="#587ab8" opacity="0.479">∄</text>
+    <text x="247" y="62" font-size="24" fill="#5375b3" opacity="0.445">¬</text>
+    <text x="247" y="31" font-size="24" fill="#4e70ad" opacity="0.411">∎</text>
+    <text x="247" y="0" font-size="24" fill="#496ba8" opacity="0.377">≥</text>
+    <text x="273" y="682" font-size="24" fill="#ffffff" opacity="1.0">Δ</text>
+    <text x="273" y="651" font-size="24" fill="#91b9f9" opacity="0.885">∵</text>
+    <text x="273" y="620" font-size="24" fill="#8cb3f4" opacity="0.849">⊃</text>
+    <text x="273" y="589" font-size="24" fill="#87aeee" opacity="0.814">⊆</text>
+    <text x="273" y="558" font-size="24" fill="#82a8e8" opacity="0.778">Δ</text>
+    <text x="273" y="527" font-size="24" fill="#7da3e3" opacity="0.743">≥</text>
+    <text x="273" y="496" font-size="24" fill="#789ddd" opacity="0.707">Φ</text>
+    <text x="273" y="465" font-size="24" fill="#7398d7" opacity="0.672">Δ</text>
+    <text x="273" y="434" font-size="24" fill="#6e92d2" opacity="0.636">≠</text>
+    <text x="273" y="403" font-size="24" fill="#698dcc" opacity="0.601">ψ</text>
+    <text x="273" y="372" font-size="24" fill="#6487c6" opacity="0.565">∄</text>
+    <text x="273" y="341" font-size="24" fill="#5f82c0" opacity="0.53">∪</text>
+    <text x="273" y="310" font-size="24" fill="#5a7dbb" opacity="0.495">∅</text>
+    <text x="273" y="279" font-size="24" fill="#5577b5" opacity="0.459">≥</text>
+    <text x="273" y="248" font-size="24" fill="#5072af" opacity="0.424">∉</text>
+    <text x="273" y="217" font-size="24" fill="#4b6caa" opacity="0.388">≤</text>
+    <text x="273" y="186" font-size="24" fill="#4667a4" opacity="0.353">Φ</text>
+    <text x="273" y="155" font-size="24" fill="#41619e" opacity="0.317">⊆</text>
+    <text x="273" y="124" font-size="24" fill="#3c5c99" opacity="0.282">≤</text>
+    <text x="273" y="93" font-size="24" fill="#375693" opacity="0.246">↔</text>
+    <text x="273" y="62" font-size="24" fill="#32518d" opacity="0.211">≠</text>
+    <text x="273" y="31" font-size="24" fill="#2d4b88" opacity="0.175">Γ</text>
+    <text x="299" y="961" font-size="24" fill="#ffffff" opacity="1.0">⊂</text>
+    <text x="299" y="930" font-size="24" fill="#88afef" opacity="0.823">Δ</text>
+    <text x="299" y="899" font-size="24" fill="#7aa0e0" opacity="0.725">∵</text>
+    <text x="299" y="868" font-size="24" fill="#6d91d0" opacity="0.628">∉</text>
+    <text x="299" y="837" font-size="24" fill="#5f82c0" opacity="0.53">⊃</text>
+    <text x="299" y="806" font-size="24" fill="#5173b1" opacity="0.432">⊕</text>
+    <text x="299" y="775" font-size="24" fill="#4464a1" opacity="0.335">¬</text>
+    <text x="299" y="744" font-size="24" fill="#365592" opacity="0.238">≤</text>
+    <text x="325" y="899" font-size="24" fill="#ffffff" opacity="1.0">∈</text>
+    <text x="325" y="868" font-size="24" fill="#84aaea" opacity="0.79">∀</text>
+    <text x="325" y="837" font-size="24" fill="#7196d5" opacity="0.66">≤</text>
+    <text x="325" y="806" font-size="24" fill="#5f82c0" opacity="0.53">⊭</text>
+    <text x="325" y="775" font-size="24" fill="#4d6eac" opacity="0.4">φ</text>
+    <text x="325" y="744" font-size="24" fill="#3a5a97" opacity="0.27">∈</text>
+    <text x="351" y="310" font-size="24" fill="#ffffff" opacity="1.0">⊃</text>
+    <text x="351" y="279" font-size="24" fill="#92bafb" opacity="0.895">≡</text>
+    <text x="351" y="248" font-size="24" fill="#8fb6f7" opacity="0.87">∧</text>
+    <text x="351" y="217" font-size="24" fill="#8bb2f3" opacity="0.845">∄</text>
+    <text x="351" y="186" font-size="24" fill="#88afef" opacity="0.819">φ</text>
+    <text x="351" y="155" font-size="24" fill="#84abeb" opacity="0.794">⊂</text>
+    <text x="351" y="124" font-size="24" fill="#81a7e7" opacity="0.769">∴</text>
+    <text x="351" y="93" font-size="24" fill="#7da3e3" opacity="0.744">¬</text>
+    <text x="351" y="62" font-size="24" fill="#7a9fdf" opacity="0.719">∀</text>
+    <text x="351" y="31" font-size="24" fill="#769bdb" opacity="0.694">∅</text>
+    <text x="351" y="0" font-size="24" fill="#7397d7" opacity="0.668">⊭</text>
+    <text x="377" y="217" font-size="24" fill="#ffffff" opacity="1.0">Δ</text>
+    <text x="377" y="186" font-size="24" fill="#92bafb" opacity="0.894">∨</text>
+    <text x="377" y="155" font-size="24" fill="#8fb6f7" opacity="0.868">φ</text>
+    <text x="377" y="124" font-size="24" fill="#8bb2f2" opacity="0.842">⊤</text>
+    <text x="377" y="93" font-size="24" fill="#87aeee" opacity="0.816">Γ</text>
+    <text x="377" y="62" font-size="24" fill="#84aaea" opacity="0.79">⊭</text>
+    <text x="377" y="31" font-size="24" fill="#80a6e6" opacity="0.764">∨</text>
+    <text x="377" y="0" font-size="24" fill="#7ca2e2" opacity="0.738">∎</text>
+    <text x="403" y="837" font-size="24" fill="#ffffff" opacity="1.0">Φ</text>
+    <text x="403" y="806" font-size="24" fill="#92bafb" opacity="0.892">∪</text>
+    <text x="403" y="775" font-size="24" fill="#8eb5f6" opacity="0.864">∈</text>
+    <text x="403" y="744" font-size="24" fill="#8ab1f2" opacity="0.836">⊕</text>
+    <text x="403" y="713" font-size="24" fill="#86aded" opacity="0.809">→</text>
+    <text x="403" y="682" font-size="24" fill="#82a9e9" opacity="0.781">∨</text>
+    <text x="403" y="651" font-size="24" fill="#7ea4e4" opacity="0.753">⊭</text>
+    <text x="403" y="620" font-size="24" fill="#7aa0e0" opacity="0.725">∩</text>
+    <text x="403" y="589" font-size="24" fill="#779cdb" opacity="0.697">Φ</text>
+    <text x="403" y="558" font-size="24" fill="#7397d7" opacity="0.669">⊕</text>
+    <text x="403" y="527" font-size="24" fill="#6f93d2" opacity="0.641">□</text>
+    <text x="403" y="496" font-size="24" fill="#6b8fce" opacity="0.614">¬</text>
+    <text x="403" y="465" font-size="24" fill="#678bc9" opacity="0.586">Ψ</text>
+    <text x="403" y="434" font-size="24" fill="#6386c5" opacity="0.558">⊃</text>
+    <text x="403" y="403" font-size="24" fill="#5f82c0" opacity="0.53">□</text>
+    <text x="403" y="372" font-size="24" fill="#5b7ebc" opacity="0.502">∀</text>
+    <text x="403" y="341" font-size="24" fill="#5779b8" opacity="0.474">∉</text>
+    <text x="403" y="310" font-size="24" fill="#5375b3" opacity="0.446">□</text>
+    <text x="403" y="279" font-size="24" fill="#4f71af" opacity="0.419">⊨</text>
+    <text x="403" y="248" font-size="24" fill="#4b6daa" opacity="0.391">⊢</text>
+    <text x="403" y="217" font-size="24" fill="#4768a6" opacity="0.363">∴</text>
+    <text x="403" y="186" font-size="24" fill="#4464a1" opacity="0.335">∴</text>
+    <text x="403" y="155" font-size="24" fill="#40609d" opacity="0.307">∃</text>
+    <text x="403" y="124" font-size="24" fill="#3c5b98" opacity="0.279">∃</text>
+    <text x="403" y="93" font-size="24" fill="#385794" opacity="0.251">Φ</text>
+    <text x="403" y="62" font-size="24" fill="#34538f" opacity="0.224">Γ</text>
+    <text x="403" y="31" font-size="24" fill="#304f8b" opacity="0.196">∅</text>
+    <text x="403" y="0" font-size="24" fill="#2c4a86" opacity="0.168">∩</text>
+    <text x="455" y="899" font-size="24" fill="#ffffff" opacity="1.0">Δ</text>
+    <text x="455" y="868" font-size="24" fill="#8ab1f1" opacity="0.833">≥</text>
+    <text x="455" y="837" font-size="24" fill="#7ea3e3" opacity="0.747">⊬</text>
+    <text x="455" y="806" font-size="24" fill="#7196d5" opacity="0.66">→</text>
+    <text x="455" y="775" font-size="24" fill="#6589c7" opacity="0.573">¬</text>
+    <text x="455" y="744" font-size="24" fill="#597bba" opacity="0.487">⊭</text>
+    <text x="455" y="713" font-size="24" fill="#4d6eac" opacity="0.4">Ψ</text>
+    <text x="455" y="682" font-size="24" fill="#40619e" opacity="0.313">⊥</text>
+    <text x="455" y="651" font-size="24" fill="#345390" opacity="0.227">≠</text>
+    <text x="481" y="310" font-size="24" fill="#ffffff" opacity="1.0">≥</text>
+    <text x="481" y="279" font-size="24" fill="#8fb6f7" opacity="0.871">∎</text>
+    <text x="481" y="248" font-size="24" fill="#88afef" opacity="0.823">⊤</text>
+    <text x="481" y="217" font-size="24" fill="#81a8e8" opacity="0.774">⊨</text>
+    <text x="481" y="186" font-size="24" fill="#7aa0e0" opacity="0.725">ψ</text>
+    <text x="481" y="155" font-size="24" fill="#7498d8" opacity="0.676">◇</text>
+    <text x="481" y="124" font-size="24" fill="#6d91d0" opacity="0.628">∄</text>
+    <text x="481" y="93" font-size="24" fill="#668ac8" opacity="0.579">⊃</text>
+    <text x="481" y="62" font-size="24" fill="#5f82c0" opacity="0.53">↔</text>
+    <text x="481" y="31" font-size="24" fill="#587ab9" opacity="0.481">∄</text>
+    <text x="481" y="0" font-size="24" fill="#5173b1" opacity="0.432">φ</text>
+    <text x="507" y="930" font-size="24" fill="#ffffff" opacity="1.0">⊢</text>
+    <text x="507" y="899" font-size="24" fill="#93bafb" opacity="0.896">≤</text>
+    <text x="507" y="868" font-size="24" fill="#8fb6f7" opacity="0.871">⊃</text>
+    <text x="507" y="837" font-size="24" fill="#8cb3f3" opacity="0.847">Γ</text>
+    <text x="507" y="806" font-size="24" fill="#88afef" opacity="0.823">∃</text>
+    <text x="507" y="775" font-size="24" fill="#85abeb" opacity="0.798">∨</text>
+    <text x="507" y="744" font-size="24" fill="#81a8e8" opacity="0.774">Ψ</text>
+    <text x="507" y="713" font-size="24" fill="#7ea4e4" opacity="0.749">⊥</text>
+    <text x="507" y="682" font-size="24" fill="#7aa0e0" opacity="0.725">Ψ</text>
+    <text x="507" y="651" font-size="24" fill="#779cdc" opacity="0.701">∨</text>
+    <text x="507" y="620" font-size="24" fill="#7498d8" opacity="0.676">→</text>
+    <text x="507" y="589" font-size="24" fill="#7095d4" opacity="0.652">↔</text>
+    <text x="507" y="558" font-size="24" fill="#6d91d0" opacity="0.628">□</text>
+    <text x="507" y="527" font-size="24" fill="#698dcc" opacity="0.603">⊂</text>
+    <text x="507" y="496" font-size="24" fill="#668ac8" opacity="0.579">≠</text>
+    <text x="507" y="465" font-size="24" fill="#6286c4" opacity="0.554">φ</text>
+    <text x="507" y="434" font-size="24" fill="#5f82c0" opacity="0.53">⊕</text>
+    <text x="507" y="403" font-size="24" fill="#5c7ebd" opacity="0.506">∈</text>
+    <text x="507" y="372" font-size="24" fill="#587ab9" opacity="0.481">□</text>
+    <text x="507" y="341" font-size="24" fill="#5577b5" opacity="0.457">∩</text>
+    <text x="507" y="310" font-size="24" fill="#5173b1" opacity="0.432">↔</text>
+    <text x="507" y="279" font-size="24" fill="#4e6fad" opacity="0.408">∴</text>
+    <text x="507" y="248" font-size="24" fill="#4a6ca9" opacity="0.384">↔</text>
+    <text x="507" y="217" font-size="24" fill="#4768a5" opacity="0.359">⊆</text>
+    <text x="507" y="186" font-size="24" fill="#4464a1" opacity="0.335">≥</text>
+    <text x="507" y="155" font-size="24" fill="#40609d" opacity="0.311">Δ</text>
+    <text x="507" y="124" font-size="24" fill="#3d5c99" opacity="0.286">⊕</text>
+    <text x="507" y="93" font-size="24" fill="#395996" opacity="0.262">∪</text>
+    <text x="507" y="62" font-size="24" fill="#365592" opacity="0.238">≥</text>
+    <text x="507" y="31" font-size="24" fill="#32518e" opacity="0.213">↔</text>
+    <text x="507" y="0" font-size="24" fill="#2f4e8a" opacity="0.189">∅</text>
+    <text x="533" y="124" font-size="24" fill="#ffffff" opacity="1.0">≤</text>
+    <text x="533" y="93" font-size="24" fill="#91b8f9" opacity="0.883">∧</text>
+    <text x="533" y="62" font-size="24" fill="#8cb3f3" opacity="0.846">Ψ</text>
+    <text x="533" y="31" font-size="24" fill="#86aded" opacity="0.809">Ψ</text>
+    <text x="533" y="0" font-size="24" fill="#81a7e7" opacity="0.771">⊂</text>
+    <text x="559" y="713" font-size="24" fill="#ffffff" opacity="1.0">⊥</text>
+    <text x="559" y="682" font-size="24" fill="#8ab1f1" opacity="0.833">⊤</text>
+    <text x="559" y="651" font-size="24" fill="#7ea3e3" opacity="0.747">∀</text>
+    <text x="559" y="620" font-size="24" fill="#7196d5" opacity="0.66">∈</text>
+    <text x="559" y="589" font-size="24" fill="#6589c7" opacity="0.573">≥</text>
+    <text x="559" y="558" font-size="24" fill="#597bba" opacity="0.487">λ</text>
+    <text x="559" y="527" font-size="24" fill="#4d6eac" opacity="0.4">⊕</text>
+    <text x="559" y="496" font-size="24" fill="#40619e" opacity="0.313">φ</text>
+    <text x="559" y="465" font-size="24" fill="#345390" opacity="0.227">↔</text>
+    <text x="611" y="775" font-size="24" fill="#ffffff" opacity="1.0">∴</text>
+    <text x="611" y="744" font-size="24" fill="#8cb3f4" opacity="0.849">ψ</text>
+    <text x="611" y="713" font-size="24" fill="#82a8e8" opacity="0.778">⊬</text>
+    <text x="611" y="682" font-size="24" fill="#789ddd" opacity="0.707">φ</text>
+    <text x="611" y="651" font-size="24" fill="#6e92d2" opacity="0.636">⊥</text>
+    <text x="611" y="620" font-size="24" fill="#6487c6" opacity="0.565">∧</text>
+    <text x="611" y="589" font-size="24" fill="#5a7dbb" opacity="0.495">⊂</text>
+    <text x="611" y="558" font-size="24" fill="#5072af" opacity="0.424">ψ</text>
+    <text x="611" y="527" font-size="24" fill="#4667a4" opacity="0.353">⊬</text>
+    <text x="611" y="496" font-size="24" fill="#3c5c99" opacity="0.282">⊥</text>
+    <text x="611" y="465" font-size="24" fill="#32518d" opacity="0.211">⊬</text>
+    <text x="689" y="186" font-size="24" fill="#ffffff" opacity="1.0">∉</text>
+    <text x="689" y="155" font-size="24" fill="#8bb2f2" opacity="0.842">⊆</text>
+    <text x="689" y="124" font-size="24" fill="#80a6e6" opacity="0.764">∉</text>
+    <text x="689" y="93" font-size="24" fill="#759ada" opacity="0.686">≠</text>
+    <text x="689" y="62" font-size="24" fill="#6a8ecd" opacity="0.608">→</text>
+    <text x="689" y="31" font-size="24" fill="#5f82c0" opacity="0.53">∉</text>
+    <text x="689" y="0" font-size="24" fill="#5476b4" opacity="0.452">⊢</text>
+    <text x="715" y="589" font-size="24" fill="#ffffff" opacity="1.0">↔</text>
+    <text x="715" y="558" font-size="24" fill="#90b7f8" opacity="0.874">∉</text>
+    <text x="715" y="527" font-size="24" fill="#89b0f0" opacity="0.828">Φ</text>
+    <text x="715" y="496" font-size="24" fill="#83a9e9" opacity="0.782">∅</text>
+    <text x="715" y="465" font-size="24" fill="#7ca2e2" opacity="0.736">⊂</text>
+    <text x="715" y="434" font-size="24" fill="#769bda" opacity="0.691">⊭</text>
+    <text x="715" y="403" font-size="24" fill="#6f94d3" opacity="0.645">⊨</text>
+    <text x="715" y="372" font-size="24" fill="#698dcc" opacity="0.599">∪</text>
+    <text x="715" y="341" font-size="24" fill="#6286c4" opacity="0.553">∅</text>
+    <text x="715" y="310" font-size="24" fill="#5c7ebd" opacity="0.507">→</text>
+    <text x="715" y="279" font-size="24" fill="#5577b5" opacity="0.461">⊆</text>
+    <text x="715" y="248" font-size="24" fill="#4f70ae" opacity="0.415">⊆</text>
+    <text x="715" y="217" font-size="24" fill="#4869a7" opacity="0.369">⊨</text>
+    <text x="715" y="186" font-size="24" fill="#42629f" opacity="0.324">∀</text>
+    <text x="715" y="155" font-size="24" fill="#3b5b98" opacity="0.278">⊕</text>
+    <text x="715" y="124" font-size="24" fill="#355491" opacity="0.232">⊆</text>
+    <text x="715" y="93" font-size="24" fill="#2e4d89" opacity="0.186">⊕</text>
+    <text x="845" y="434" font-size="24" fill="#ffffff" opacity="1.0">⊬</text>
+    <text x="845" y="403" font-size="24" fill="#91b9fa" opacity="0.886">∴</text>
+    <text x="845" y="372" font-size="24" fill="#8cb4f4" opacity="0.852">∅</text>
+    <text x="845" y="341" font-size="24" fill="#88aeef" opacity="0.818">≥</text>
+    <text x="845" y="310" font-size="24" fill="#83a9e9" opacity="0.784">∎</text>
+    <text x="845" y="279" font-size="24" fill="#7ea4e4" opacity="0.75">∄</text>
+    <text x="845" y="248" font-size="24" fill="#799fde" opacity="0.717">◇</text>
+    <text x="845" y="217" font-size="24" fill="#7599d9" opacity="0.683">∅</text>
+    <text x="845" y="186" font-size="24" fill="#7094d4" opacity="0.649">∎</text>
+    <text x="845" y="155" font-size="24" fill="#6b8fce" opacity="0.615">⊥</text>
+    <text x="845" y="124" font-size="24" fill="#668ac9" opacity="0.581">∎</text>
+    <text x="845" y="93" font-size="24" fill="#6185c3" opacity="0.547">≥</text>
+    <text x="845" y="62" font-size="24" fill="#5d7fbe" opacity="0.513">≠</text>
+    <text x="845" y="31" font-size="24" fill="#587ab8" opacity="0.479">∧</text>
+    <text x="845" y="0" font-size="24" fill="#5375b3" opacity="0.445">∵</text>
+    <text x="871" y="806" font-size="24" fill="#ffffff" opacity="1.0">⊆</text>
+    <text x="871" y="775" font-size="24" fill="#91b9f9" opacity="0.885">□</text>
+    <text x="871" y="744" font-size="24" fill="#8cb3f4" opacity="0.849">∪</text>
+    <text x="871" y="713" font-size="24" fill="#87aeee" opacity="0.814">∴</text>
+    <text x="871" y="682" font-size="24" fill="#82a8e8" opacity="0.778">⊢</text>
+    <text x="871" y="651" font-size="24" fill="#7da3e3" opacity="0.743">≠</text>
+    <text x="871" y="620" font-size="24" fill="#789ddd" opacity="0.707">∃</text>
+    <text x="871" y="589" font-size="24" fill="#7398d7" opacity="0.672">∪</text>
+    <text x="871" y="558" font-size="24" fill="#6e92d2" opacity="0.636">λ</text>
+    <text x="871" y="527" font-size="24" fill="#698dcc" opacity="0.601">∪</text>
+    <text x="871" y="496" font-size="24" fill="#6487c6" opacity="0.565">∧</text>
+    <text x="871" y="465" font-size="24" fill="#5f82c0" opacity="0.53">∩</text>
+    <text x="871" y="434" font-size="24" fill="#5a7dbb" opacity="0.495">⊕</text>
+    <text x="871" y="403" font-size="24" fill="#5577b5" opacity="0.459">∅</text>
+    <text x="871" y="372" font-size="24" fill="#5072af" opacity="0.424">⊭</text>
+    <text x="871" y="341" font-size="24" fill="#4b6caa" opacity="0.388">∃</text>
+    <text x="871" y="310" font-size="24" fill="#4667a4" opacity="0.353">φ</text>
+    <text x="871" y="279" font-size="24" fill="#41619e" opacity="0.317">λ</text>
+    <text x="871" y="248" font-size="24" fill="#3c5c99" opacity="0.282">⊃</text>
+    <text x="871" y="217" font-size="24" fill="#375693" opacity="0.246">ψ</text>
+    <text x="871" y="186" font-size="24" fill="#32518d" opacity="0.211">⊢</text>
+    <text x="871" y="155" font-size="24" fill="#2d4b88" opacity="0.175">∧</text>
+    <text x="975" y="124" font-size="24" fill="#ffffff" opacity="1.0">∎</text>
+    <text x="975" y="93" font-size="24" fill="#90b7f8" opacity="0.874">∩</text>
+    <text x="975" y="62" font-size="24" fill="#89b0f0" opacity="0.828">∃</text>
+    <text x="975" y="31" font-size="24" fill="#83a9e9" opacity="0.782">≠</text>
+    <text x="975" y="0" font-size="24" fill="#7ca2e2" opacity="0.736">⊭</text>
+    <text x="1079" y="620" font-size="24" fill="#ffffff" opacity="1.0">⊤</text>
+    <text x="1079" y="589" font-size="24" fill="#90b8f8" opacity="0.879">∨</text>
+    <text x="1079" y="558" font-size="24" fill="#8ab1f2" opacity="0.838">↔</text>
+    <text x="1079" y="527" font-size="24" fill="#85abeb" opacity="0.797">φ</text>
+    <text x="1079" y="496" font-size="24" fill="#7fa5e5" opacity="0.756">∃</text>
+    <text x="1079" y="465" font-size="24" fill="#799ede" opacity="0.715">φ</text>
+    <text x="1079" y="434" font-size="24" fill="#7398d8" opacity="0.674">ψ</text>
+    <text x="1079" y="403" font-size="24" fill="#6d92d1" opacity="0.633">◇</text>
+    <text x="1079" y="372" font-size="24" fill="#688bca" opacity="0.592">⊆</text>
+    <text x="1079" y="341" font-size="24" fill="#6285c4" opacity="0.551">¬</text>
+    <text x="1079" y="310" font-size="24" fill="#5c7fbd" opacity="0.509">⊤</text>
+    <text x="1079" y="279" font-size="24" fill="#5679b7" opacity="0.468">∃</text>
+    <text x="1079" y="248" font-size="24" fill="#5172b0" opacity="0.427">∃</text>
+    <text x="1079" y="217" font-size="24" fill="#4b6ca9" opacity="0.386">⊂</text>
+    <text x="1079" y="186" font-size="24" fill="#4566a3" opacity="0.345">φ</text>
+    <text x="1079" y="155" font-size="24" fill="#3f5f9c" opacity="0.304">Γ</text>
+    <text x="1079" y="124" font-size="24" fill="#395996" opacity="0.263">⊕</text>
+    <text x="1079" y="93" font-size="24" fill="#34538f" opacity="0.222">⊆</text>
+    <text x="1079" y="62" font-size="24" fill="#2e4c89" opacity="0.181">∅</text>
+    <text x="1131" y="248" font-size="24" fill="#ffffff" opacity="1.0">↔</text>
+    <text x="1131" y="217" font-size="24" fill="#88afef" opacity="0.823">ψ</text>
+    <text x="1131" y="186" font-size="24" fill="#7aa0e0" opacity="0.725">∄</text>
+    <text x="1131" y="155" font-size="24" fill="#6d91d0" opacity="0.628">Φ</text>
+    <text x="1131" y="124" font-size="24" fill="#5f82c0" opacity="0.53">⊆</text>
+    <text x="1131" y="93" font-size="24" fill="#5173b1" opacity="0.432">λ</text>
+    <text x="1131" y="62" font-size="24" fill="#4464a1" opacity="0.335">Ψ</text>
+    <text x="1131" y="31" font-size="24" fill="#365592" opacity="0.238">∅</text>
+    <text x="1183" y="744" font-size="24" fill="#ffffff" opacity="1.0">≡</text>
+    <text x="1183" y="713" font-size="24" fill="#84aaea" opacity="0.79">Γ</text>
+    <text x="1183" y="682" font-size="24" fill="#7196d5" opacity="0.66">⊢</text>
+    <text x="1183" y="651" font-size="24" fill="#5f82c0" opacity="0.53">⊤</text>
+    <text x="1183" y="620" font-size="24" fill="#4d6eac" opacity="0.4">Φ</text>
+    <text x="1183" y="589" font-size="24" fill="#3a5a97" opacity="0.27">¬</text>
+  </g>
+
+  <!-- darken the rain behind the title -->
+  <ellipse cx="590.5" cy="421.7" rx="496.02" ry="307.5324" fill="url(#vignette)"/>
+
+  <!-- title + subtitle -->
+  <g text-anchor="middle" font-family="Arial,'Helvetica Neue',Helvetica,sans-serif">
+    <text x="590.5" y="443.0" font-size="142" font-weight="bold"
+          fill="url(#title)"
+          dominant-baseline="middle" letter-spacing="1.42" textLength="1016" lengthAdjust="spacingAndGlyphs">ProoVer 2026</text>
+    <text x="590.5" y="545.24" font-size="46" fill="#dbe6ff"
+          letter-spacing="12.88"
+          dominant-baseline="middle" font-style="italic">— Lisbon —</text>
+  </g>
+</svg>

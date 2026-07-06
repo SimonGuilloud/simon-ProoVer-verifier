@@ -3,18 +3,24 @@
 Print-ready artwork for DTF (Direct-to-Film) on **COD.55 navy hand fans**,
 print size **10 × 7.5 cm** (4:3).
 
-## Files to send to the printer
+All PNGs are 1181 × 886 px = 10 × 7.5 cm at 300 DPI.
 
-- **`proover_dtf_arial.png`** — recommended. 1181 × 886 px, transparent
-  background (RGBA), = 10 × 7.5 cm at 300 DPI.
-- `proover_dtf_serif.png` — same, serif title (thinner strokes; slightly more
-  fragile at this size).
-- `proover_dtf_{arial,serif}.svg` — vector source, in case the printer prefers
-  to rasterize themselves or rescale.
+Two background options — send both and let the printer advise:
 
-`preview_navy_*.png` show the intended result on a navy background — these are
-**previews only**, not the print files. The real print files are transparent
-(white text is invisible on a white viewer background — that's expected).
+**Transparent** (only artwork prints; the navy fan is the backdrop)
+- **`proover_dtf_arial.png`** — recommended.
+- `proover_dtf_serif.png` — serif title (thinner strokes; more fragile).
+
+**Navy background** (prints a filled navy panel; works on any fan shade but
+shows a rectangle edge)
+- `proover_dtf_arial_navybg.png`
+- `proover_dtf_serif_navybg.png`
+
+`proover_dtf_*.svg` — vector source, if the printer prefers to rasterize or
+rescale themselves.
+
+Note: on a transparent file the white text looks invisible in a white image
+viewer — that is expected; it shows against the navy fan (or the navybg files).
 
 ## Specs
 
