@@ -89,10 +89,28 @@ def build_svg(
     subtitle: str,
     theme: str,
     font: str,
+    transparent: bool = False,
+    glow: bool = True,
+    fit_title: bool = False,
 ) -> str:
+    """Build the logo SVG.
+
+    transparent  Omit the background fill and the legibility vignette, so the
+                 file prints only the artwork (ideal for DTF on a garment whose
+                 colour supplies the backdrop). Also lifts the faint-symbol
+                 opacity floor so the Matrix fade survives a physical print.
+    glow         Soft blur halo behind the rain/title. Turn off for small DTF
+                 prints, where halos dither into noise.
+    fit_title    Stretch the title to a fixed fraction of the width via
+                 textLength, so long titles fill a square without overflowing.
+    """
     rng = random.Random(seed)
     th = THEMES[theme]
     title_font = FONTS[font]
+
+    # For a print with no dark backdrop, faint glyphs must not fade to nothing.
+    op_floor = 0.42 if transparent else 0.14
+    op_span = 0.55 if transparent else 0.78
 
     # --- Matrix rain layout -------------------------------------------------
     col_w = max(18, round(width / 46))          # column spacing / glyph size
@@ -122,7 +140,7 @@ def build_svg(
                 # Fade the tail: brightest (base colour) just behind the head,
                 # blending toward the darker tail colour further up.
                 frac = 1.0 - t / tail
-                opacity = round(0.14 + 0.78 * frac, 3)
+                opacity = round(op_floor + op_span * frac, 3)
                 fill = _lerp(th["rain_tail"], th["rain_base"], frac)
 
             glyphs.append(
@@ -139,6 +157,28 @@ def build_svg(
     title_y = height * 0.5
     sub_y = title_y + title_size * 0.72
     vignette_r = width * 0.42
+
+    glow_ref = ' filter="url(#glow)"' if glow else ""
+    # Fit a long title to the frame width without overflowing a square.
+    title_extra = (
+        f' textLength="{round(width * 0.86)}" lengthAdjust="spacingAndGlyphs"'
+        if fit_title else ""
+    )
+
+    bg_layer = "" if transparent else (
+        f'<rect width="{width}" height="{height}" fill="url(#bg)"/>'
+    )
+    vignette_layer = "" if transparent else (
+        f'<ellipse cx="{cx}" cy="{title_y - title_size*0.15}" '
+        f'rx="{vignette_r}" ry="{vignette_r*0.62}" fill="url(#vignette)"/>'
+    )
+    glow_def = "" if not glow else f"""<filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="{round(height*0.006,2)}" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>"""
 
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}"
@@ -157,32 +197,25 @@ def build_svg(
       <stop offset="0%" stop-color="{th['title_top']}"/>
       <stop offset="100%" stop-color="{th['title_bottom']}"/>
     </linearGradient>
-    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="{round(height*0.006,2)}" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    {glow_def}
   </defs>
 
   <!-- background -->
-  <rect width="{width}" height="{height}" fill="url(#bg)"/>
+  {bg_layer}
 
   <!-- matrix rain of logical symbols -->
-  <g text-anchor="middle" filter="url(#glow)">
+  <g text-anchor="middle"{glow_ref}>
     {rain}
   </g>
 
   <!-- darken the rain behind the title -->
-  <ellipse cx="{cx}" cy="{title_y - title_size*0.15}" rx="{vignette_r}" ry="{vignette_r*0.62}"
-           fill="url(#vignette)"/>
+  {vignette_layer}
 
   <!-- title + subtitle -->
   <g text-anchor="middle" font-family="{title_font}">
     <text x="{cx}" y="{title_y}" font-size="{title_size}" font-weight="bold"
-          fill="url(#title)" filter="url(#glow)"
-          dominant-baseline="middle" letter-spacing="{round(title_size*0.01,2)}">{esc(title)}</text>
+          fill="url(#title)"{glow_ref}
+          dominant-baseline="middle" letter-spacing="{round(title_size*0.01,2)}"{title_extra}>{esc(title)}</text>
     <text x="{cx}" y="{sub_y}" font-size="{sub_size}" fill="{th['subtitle']}"
           letter-spacing="{round(sub_size*0.28,2)}"
           dominant-baseline="middle" font-style="italic">{esc(subtitle)}</text>
@@ -201,17 +234,26 @@ def main() -> None:
     p.add_argument("--subtitle", default="— Lisbon —")
     p.add_argument("--theme", choices=sorted(THEMES), default="matrix")
     p.add_argument("--font", choices=sorted(FONTS), default="serif")
+    p.add_argument("--transparent", action="store_true",
+                   help="No background/vignette; lifts faint-symbol opacity "
+                        "(for DTF/print where the garment supplies the backdrop).")
+    p.add_argument("--no-glow", dest="glow", action="store_false",
+                   help="Disable the soft glow (recommended for small prints).")
+    p.add_argument("--fit-title", action="store_true",
+                   help="Stretch the title to fill the width (good for squares).")
     args = p.parse_args()
 
     svg = build_svg(
         args.width, args.height, args.seed,
         args.title, args.subtitle, args.theme, args.font,
+        transparent=args.transparent, glow=args.glow, fit_title=args.fit_title,
     )
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(svg)
     print(f"wrote {args.output} "
           f"({args.width}x{args.height}, seed={args.seed}, "
-          f"theme={args.theme}, font={args.font})")
+          f"theme={args.theme}, font={args.font}, "
+          f"transparent={args.transparent}, glow={args.glow})")
 
 
 if __name__ == "__main__":
