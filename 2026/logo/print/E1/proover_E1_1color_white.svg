@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1181" height="886"
+     viewBox="0 0 1181 886" font-family="'DejaVu Sans Mono','Noto Sans Symbols2',monospace">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#12325e"/>
+      <stop offset="100%" stop-color="#040a18"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#040a18" stop-opacity="0.92"/>
+      <stop offset="55%" stop-color="#040a18" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#040a18" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- background -->
+  
+
+  <!-- matrix rain of logical symbols -->
+  <g text-anchor="middle">
+    <text x="76" y="1020" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∉</text>
+    <text x="76" y="960" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊤</text>
+    <text x="76" y="900" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∎</text>
+    <text x="76" y="840" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="76" y="780" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊕</text>
+    <text x="76" y="720" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊬</text>
+    <text x="76" y="660" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="76" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="76" y="540" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊭</text>
+    <text x="76" y="360" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≤</text>
+    <text x="76" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≡</text>
+    <text x="76" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∀</text>
+    <text x="178" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∉</text>
+    <text x="178" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≤</text>
+    <text x="178" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∀</text>
+    <text x="178" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="229" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">◇</text>
+    <text x="229" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊆</text>
+    <text x="229" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∴</text>
+    <text x="229" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∴</text>
+    <text x="229" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">□</text>
+    <text x="229" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Φ</text>
+    <text x="331" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="331" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">φ</text>
+    <text x="331" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∪</text>
+    <text x="331" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∪</text>
+    <text x="331" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≥</text>
+    <text x="331" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">¬</text>
+    <text x="382" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∵</text>
+    <text x="382" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∵</text>
+    <text x="382" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≥</text>
+    <text x="382" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≠</text>
+    <text x="382" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∈</text>
+    <text x="433" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊭</text>
+    <text x="433" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="433" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="433" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∧</text>
+    <text x="433" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≠</text>
+    <text x="433" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Φ</text>
+    <text x="433" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∎</text>
+    <text x="484" y="960" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Ψ</text>
+    <text x="484" y="900" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊆</text>
+    <text x="484" y="840" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊕</text>
+    <text x="484" y="780" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊬</text>
+    <text x="484" y="720" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Γ</text>
+    <text x="484" y="660" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Φ</text>
+    <text x="484" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Ψ</text>
+    <text x="790" y="720" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">¬</text>
+    <text x="790" y="660" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Γ</text>
+    <text x="790" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊤</text>
+    <text x="790" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∧</text>
+    <text x="790" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≥</text>
+    <text x="790" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Γ</text>
+    <text x="790" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">φ</text>
+    <text x="790" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊆</text>
+    <text x="790" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="841" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∩</text>
+    <text x="841" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="841" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Φ</text>
+    <text x="841" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Γ</text>
+    <text x="841" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">◇</text>
+    <text x="841" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≠</text>
+    <text x="841" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊃</text>
+    <text x="892" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊂</text>
+    <text x="892" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∀</text>
+    <text x="892" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∄</text>
+    <text x="892" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">¬</text>
+    <text x="943" y="840" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Ψ</text>
+    <text x="943" y="780" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="943" y="720" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∵</text>
+    <text x="943" y="660" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊃</text>
+    <text x="943" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊆</text>
+    <text x="943" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="943" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≥</text>
+    <text x="943" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Φ</text>
+    <text x="943" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="943" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≠</text>
+    <text x="943" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">ψ</text>
+    <text x="1045" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≥</text>
+    <text x="1045" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∉</text>
+    <text x="1045" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≤</text>
+    <text x="1045" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Φ</text>
+    <text x="1096" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">↔</text>
+    <text x="1096" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≠</text>
+    <text x="1147" y="900" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊂</text>
+    <text x="1147" y="840" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">Δ</text>
+    <text x="1147" y="780" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∵</text>
+    <text x="1147" y="720" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∉</text>
+    <text x="1147" y="660" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊃</text>
+    <text x="1147" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊕</text>
+    <text x="1147" y="540" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">¬</text>
+    <text x="1198" y="780" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∀</text>
+    <text x="1198" y="720" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∈</text>
+    <text x="1198" y="660" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∀</text>
+    <text x="1198" y="600" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≤</text>
+    <text x="1198" y="540" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊭</text>
+    <text x="1198" y="480" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">φ</text>
+    <text x="1198" y="420" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∈</text>
+    <text x="1198" y="360" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊃</text>
+    <text x="1198" y="300" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">≡</text>
+    <text x="1198" y="240" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∧</text>
+    <text x="1198" y="180" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∄</text>
+    <text x="1198" y="120" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">φ</text>
+    <text x="1198" y="60" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">⊂</text>
+    <text x="1198" y="0" font-size="47" fill="#ffffff" opacity="1.0" font-weight="bold" stroke="#ffffff" stroke-width="1.41">∴</text>
+  </g>
+
+  <!-- darken the rain behind the title -->
+  
+
+  <!-- title + subtitle -->
+  <g text-anchor="middle" font-family="'Georgia','DejaVu Serif',serif">
+    <text x="590.5" y="443.0" font-size="142" font-weight="bold"
+          fill="#ffffff"
+          dominant-baseline="middle" letter-spacing="1.42" textLength="1016" lengthAdjust="spacingAndGlyphs">ProoVer 2026</text>
+    <text x="590.5" y="545.24" font-size="46" fill="#ffffff"
+          font-weight="bold" letter-spacing="12.88"
+          dominant-baseline="middle" font-style="normal">— Lisbon —</text>
+  </g>
+</svg>

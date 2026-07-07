@@ -94,6 +94,7 @@ def build_svg(
     fit_title: bool = False,
     flat_bg: bool = False,
     rain_scale: float = 1.0,
+    ink: str | None = None,
 ) -> str:
     """Build the logo SVG.
 
@@ -109,10 +110,17 @@ def build_svg(
                  and no vignette ("plain navy", no dark clouds).
     rain_scale   Multiply the falling-symbol size (and spacing). 2.0 makes the
                  glyphs twice as big with correspondingly fewer columns.
+    ink          Single-ink "solid" mode for 1-colour marking (screen print /
+                 E1): every glyph and both text lines use this one colour at
+                 full opacity, glyphs are bold with a slight stroke so thin
+                 strokes clear the screen-print minimum, and the title/subtitle
+                 lose their gradient/thin styling. Pair with --transparent so
+                 only the ink prints (the garment is the backdrop).
     """
     rng = random.Random(seed)
     th = THEMES[theme]
     title_font = FONTS[font]
+    solid = ink is not None
 
     # For a print with no dark backdrop, faint glyphs must not fade to nothing.
     op_floor = 0.42 if transparent else 0.14
@@ -124,6 +132,20 @@ def build_svg(
     row_h = round(col_w * 1.18)
     n_cols = width // col_w + 1
     n_rows = height // row_h + 2
+
+    # In single-ink mode, thicken every glyph so thin strokes survive a
+    # 1-colour screen print: bold weight + a small same-colour stroke.
+    glyph_style = (
+        f' font-weight="bold" stroke="{ink}" stroke-width="{round(font_size*0.03,2)}"'
+        if solid else ""
+    )
+
+    # Keep-out ellipse around the central text. In single-ink mode a glyph
+    # overlapping the title merges into the letters (same colour), so clear a
+    # zone behind the text for legibility.
+    clear = solid
+    cxe, cye = width / 2, height * 0.52
+    crx, cry = width * 0.47, round(height * 0.16) * 1.0
 
     glyphs: list[str] = []
     for c in range(n_cols):
@@ -137,9 +159,15 @@ def build_svg(
             if r < -1 or r > n_rows:
                 continue
             y = r * row_h + row_h
+            if clear and ((x - cxe) / crx) ** 2 + ((y - cye) / cry) ** 2 < 1:
+                continue
             ch = esc(rng.choice(LOGIC_SYMBOLS))
 
-            if t == 0:
+            if solid:
+                # One flat ink, no fade — screen print can't do opacity.
+                fill = ink
+                opacity = 1.0
+            elif t == 0:
                 fill = th["rain_head"]
                 opacity = 1.0
             else:
@@ -151,7 +179,7 @@ def build_svg(
 
             glyphs.append(
                 f'<text x="{x}" y="{y}" font-size="{font_size}" '
-                f'fill="{fill}" opacity="{opacity}">{ch}</text>'
+                f'fill="{fill}" opacity="{opacity}"{glyph_style}>{ch}</text>'
             )
 
     rain = "\n    ".join(glyphs)
@@ -163,6 +191,12 @@ def build_svg(
     title_y = height * 0.5
     sub_y = title_y + title_size * 0.72
     vignette_r = width * 0.42
+
+    # Title / subtitle styling — single-ink mode makes them solid and bolder.
+    title_fill = ink if solid else "url(#title)"
+    sub_fill = ink if solid else th["subtitle"]
+    sub_weight = "bold" if solid else "normal"
+    sub_style = "normal" if solid else "italic"
 
     glow_ref = ' filter="url(#glow)"' if glow else ""
     # Fit a long title to the frame width without overflowing a square.
@@ -225,11 +259,11 @@ def build_svg(
   <!-- title + subtitle -->
   <g text-anchor="middle" font-family="{title_font}">
     <text x="{cx}" y="{title_y}" font-size="{title_size}" font-weight="bold"
-          fill="url(#title)"{glow_ref}
+          fill="{title_fill}"{glow_ref}
           dominant-baseline="middle" letter-spacing="{round(title_size*0.01,2)}"{title_extra}>{esc(title)}</text>
-    <text x="{cx}" y="{sub_y}" font-size="{sub_size}" fill="{th['subtitle']}"
-          letter-spacing="{round(sub_size*0.28,2)}"
-          dominant-baseline="middle" font-style="italic">{esc(subtitle)}</text>
+    <text x="{cx}" y="{sub_y}" font-size="{sub_size}" fill="{sub_fill}"
+          font-weight="{sub_weight}" letter-spacing="{round(sub_size*0.28,2)}"
+          dominant-baseline="middle" font-style="{sub_style}">{esc(subtitle)}</text>
   </g>
 </svg>
 """
@@ -256,13 +290,16 @@ def main() -> None:
                    help="Flat solid background, no gradient/vignette (plain navy).")
     p.add_argument("--rain-scale", type=float, default=1.0,
                    help="Scale the falling-symbol size (2.0 = twice as big).")
+    p.add_argument("--ink", default=None,
+                   help="Single-ink solid mode for 1-colour marking / screen "
+                        "print E1 (e.g. '#ffffff'). Bold, no fades, no gradient.")
     args = p.parse_args()
 
     svg = build_svg(
         args.width, args.height, args.seed,
         args.title, args.subtitle, args.theme, args.font,
         transparent=args.transparent, glow=args.glow, fit_title=args.fit_title,
-        flat_bg=args.flat_bg, rain_scale=args.rain_scale,
+        flat_bg=args.flat_bg, rain_scale=args.rain_scale, ink=args.ink,
     )
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(svg)
