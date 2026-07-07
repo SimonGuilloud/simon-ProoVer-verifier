@@ -92,6 +92,7 @@ def build_svg(
     transparent: bool = False,
     glow: bool = True,
     fit_title: bool = False,
+    flat_bg: bool = False,
 ) -> str:
     """Build the logo SVG.
 
@@ -103,6 +104,8 @@ def build_svg(
                  prints, where halos dither into noise.
     fit_title    Stretch the title to a fixed fraction of the width via
                  textLength, so long titles fill a square without overflowing.
+    flat_bg      Use a single flat background colour with no radial gradient
+                 and no vignette ("plain navy", no dark clouds).
     """
     rng = random.Random(seed)
     th = THEMES[theme]
@@ -165,10 +168,15 @@ def build_svg(
         if fit_title else ""
     )
 
-    bg_layer = "" if transparent else (
-        f'<rect width="{width}" height="{height}" fill="url(#bg)"/>'
-    )
-    vignette_layer = "" if transparent else (
+    if transparent:
+        bg_layer = ""
+    elif flat_bg:
+        # Single flat navy, no gradient.
+        bg_layer = f'<rect width="{width}" height="{height}" fill="{th["bg_inner"]}"/>'
+    else:
+        bg_layer = f'<rect width="{width}" height="{height}" fill="url(#bg)"/>'
+    # The vignette is one of the "dark clouds"; drop it when transparent or flat.
+    vignette_layer = "" if (transparent or flat_bg) else (
         f'<ellipse cx="{cx}" cy="{title_y - title_size*0.15}" '
         f'rx="{vignette_r}" ry="{vignette_r*0.62}" fill="url(#vignette)"/>'
     )
@@ -241,12 +249,15 @@ def main() -> None:
                    help="Disable the soft glow (recommended for small prints).")
     p.add_argument("--fit-title", action="store_true",
                    help="Stretch the title to fill the width (good for squares).")
+    p.add_argument("--flat-bg", action="store_true",
+                   help="Flat solid background, no gradient/vignette (plain navy).")
     args = p.parse_args()
 
     svg = build_svg(
         args.width, args.height, args.seed,
         args.title, args.subtitle, args.theme, args.font,
         transparent=args.transparent, glow=args.glow, fit_title=args.fit_title,
+        flat_bg=args.flat_bg,
     )
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(svg)
