@@ -93,6 +93,7 @@ def build_svg(
     glow: bool = True,
     fit_title: bool = False,
     flat_bg: bool = False,
+    rain_scale: float = 1.0,
 ) -> str:
     """Build the logo SVG.
 
@@ -106,6 +107,8 @@ def build_svg(
                  textLength, so long titles fill a square without overflowing.
     flat_bg      Use a single flat background colour with no radial gradient
                  and no vignette ("plain navy", no dark clouds).
+    rain_scale   Multiply the falling-symbol size (and spacing). 2.0 makes the
+                 glyphs twice as big with correspondingly fewer columns.
     """
     rng = random.Random(seed)
     th = THEMES[theme]
@@ -116,7 +119,7 @@ def build_svg(
     op_span = 0.55 if transparent else 0.78
 
     # --- Matrix rain layout -------------------------------------------------
-    col_w = max(18, round(width / 46))          # column spacing / glyph size
+    col_w = max(18, round(width / 46 * rain_scale))   # column spacing / glyph size
     font_size = round(col_w * 0.92)
     row_h = round(col_w * 1.18)
     n_cols = width // col_w + 1
@@ -251,13 +254,15 @@ def main() -> None:
                    help="Stretch the title to fill the width (good for squares).")
     p.add_argument("--flat-bg", action="store_true",
                    help="Flat solid background, no gradient/vignette (plain navy).")
+    p.add_argument("--rain-scale", type=float, default=1.0,
+                   help="Scale the falling-symbol size (2.0 = twice as big).")
     args = p.parse_args()
 
     svg = build_svg(
         args.width, args.height, args.seed,
         args.title, args.subtitle, args.theme, args.font,
         transparent=args.transparent, glow=args.glow, fit_title=args.fit_title,
-        flat_bg=args.flat_bg,
+        flat_bg=args.flat_bg, rain_scale=args.rain_scale,
     )
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(svg)
