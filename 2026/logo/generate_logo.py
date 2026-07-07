@@ -95,6 +95,8 @@ def build_svg(
     flat_bg: bool = False,
     rain_scale: float = 1.0,
     ink: str | None = None,
+    title_y_frac: float = 0.5,
+    halo: bool | None = None,
 ) -> str:
     """Build the logo SVG.
 
@@ -116,6 +118,12 @@ def build_svg(
                  strokes clear the screen-print minimum, and the title/subtitle
                  lose their gradient/thin styling. Pair with --transparent so
                  only the ink prints (the garment is the backdrop).
+    title_y_frac Vertical position of the title centre as a fraction of the
+                 height (0.5 = middle, 0.3 = upper half).
+    halo         Draw a soft dark ("black") halo behind the title/subtitle so
+                 the text separates from rain drawn over it. None = auto (on
+                 for gradient backgrounds, off for flat/transparent); True/False
+                 force it.
     """
     rng = random.Random(seed)
     th = THEMES[theme]
@@ -125,6 +133,13 @@ def build_svg(
     # For a print with no dark backdrop, faint glyphs must not fade to nothing.
     op_floor = 0.42 if transparent else 0.14
     op_span = 0.55 if transparent else 0.78
+
+    # --- Central text geometry (needed before the rain, for the keep-out) ---
+    cx = width / 2
+    title_size = round(height * 0.16)
+    sub_size = round(height * 0.052)
+    title_y = height * title_y_frac
+    sub_y = title_y + title_size * 0.72
 
     # --- Matrix rain layout -------------------------------------------------
     col_w = max(18, round(width / 46 * rain_scale))   # column spacing / glyph size
@@ -144,8 +159,8 @@ def build_svg(
     # overlapping the title merges into the letters (same colour), so clear a
     # zone behind the text for legibility.
     clear = solid
-    cxe, cye = width / 2, height * 0.52
-    crx, cry = width * 0.47, round(height * 0.16) * 1.0
+    cxe, cye = cx, (title_y + sub_y) / 2
+    crx, cry = width * 0.47, title_size * 1.15
 
     glyphs: list[str] = []
     for c in range(n_cols):
@@ -184,14 +199,6 @@ def build_svg(
 
     rain = "\n    ".join(glyphs)
 
-    # --- Central text sizing ------------------------------------------------
-    cx = width / 2
-    title_size = round(height * 0.16)
-    sub_size = round(height * 0.052)
-    title_y = height * 0.5
-    sub_y = title_y + title_size * 0.72
-    vignette_r = width * 0.42
-
     # Title / subtitle styling — single-ink mode makes them solid and bolder.
     title_fill = ink if solid else "url(#title)"
     sub_fill = ink if solid else th["subtitle"]
@@ -212,10 +219,22 @@ def build_svg(
         bg_layer = f'<rect width="{width}" height="{height}" fill="{th["bg_inner"]}"/>'
     else:
         bg_layer = f'<rect width="{width}" height="{height}" fill="url(#bg)"/>'
-    # The vignette is one of the "dark clouds"; drop it when transparent or flat.
-    vignette_layer = "" if (transparent or flat_bg) else (
-        f'<ellipse cx="{cx}" cy="{title_y - title_size*0.15}" '
-        f'rx="{vignette_r}" ry="{vignette_r*0.62}" fill="url(#vignette)"/>'
+    # Halo behind the text. Auto: on for gradient backgrounds, off for
+    # flat/transparent. When forced on it is black; auto uses the bg's dark end.
+    eff_halo = halo if halo is not None else (not transparent and not flat_bg)
+    halo_color = "#000000" if halo else th["bg_outer"]
+    hcy = (title_y - title_size * 0.62 + sub_y + sub_size * 0.9) / 2
+    hry = (sub_y + sub_size * 0.9 - (title_y - title_size * 0.62)) / 2 * 1.45
+    halo_layer = "" if not eff_halo else (
+        f'<ellipse cx="{cx}" cy="{round(hcy,1)}" '
+        f'rx="{round(width*0.52)}" ry="{round(hry,1)}" fill="url(#halo)"/>'
+    )
+    halo_def = "" if not eff_halo else (
+        f'<radialGradient id="halo" cx="50%" cy="50%" r="50%">'
+        f'<stop offset="0%" stop-color="{halo_color}" stop-opacity="0.9"/>'
+        f'<stop offset="45%" stop-color="{halo_color}" stop-opacity="0.68"/>'
+        f'<stop offset="100%" stop-color="{halo_color}" stop-opacity="0"/>'
+        f'</radialGradient>'
     )
     glow_def = "" if not glow else f"""<filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="{round(height*0.006,2)}" result="b"/>
@@ -233,15 +252,11 @@ def build_svg(
       <stop offset="0%" stop-color="{th['bg_inner']}"/>
       <stop offset="100%" stop-color="{th['bg_outer']}"/>
     </radialGradient>
-    <radialGradient id="vignette" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="{th['bg_outer']}" stop-opacity="0.92"/>
-      <stop offset="55%" stop-color="{th['bg_outer']}" stop-opacity="0.72"/>
-      <stop offset="100%" stop-color="{th['bg_outer']}" stop-opacity="0"/>
-    </radialGradient>
     <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="{th['title_top']}"/>
       <stop offset="100%" stop-color="{th['title_bottom']}"/>
     </linearGradient>
+    {halo_def}
     {glow_def}
   </defs>
 
@@ -253,8 +268,8 @@ def build_svg(
     {rain}
   </g>
 
-  <!-- darken the rain behind the title -->
-  {vignette_layer}
+  <!-- dark halo separating the text from the rain -->
+  {halo_layer}
 
   <!-- title + subtitle -->
   <g text-anchor="middle" font-family="{title_font}">
@@ -293,6 +308,13 @@ def main() -> None:
     p.add_argument("--ink", default=None,
                    help="Single-ink solid mode for 1-colour marking / screen "
                         "print E1 (e.g. '#ffffff'). Bold, no fades, no gradient.")
+    p.add_argument("--title-y", type=float, default=0.5,
+                   help="Title vertical centre as a fraction of height "
+                        "(0.5=middle, 0.3=upper half).")
+    p.add_argument("--halo", dest="halo", action="store_true", default=None,
+                   help="Force a dark halo behind the text.")
+    p.add_argument("--no-halo", dest="halo", action="store_false",
+                   help="No halo behind the text.")
     args = p.parse_args()
 
     svg = build_svg(
@@ -300,6 +322,7 @@ def main() -> None:
         args.title, args.subtitle, args.theme, args.font,
         transparent=args.transparent, glow=args.glow, fit_title=args.fit_title,
         flat_bg=args.flat_bg, rain_scale=args.rain_scale, ink=args.ink,
+        title_y_frac=args.title_y, halo=args.halo,
     )
     with open(args.output, "w", encoding="utf-8") as f:
         f.write(svg)
