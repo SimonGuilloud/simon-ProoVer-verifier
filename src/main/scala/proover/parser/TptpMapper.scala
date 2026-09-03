@@ -131,8 +131,7 @@ object TptpMapper:
           .getOrElse(throw TptpMappingException(s"Malformed inference rule on '${af.name}'"))
         val infoItems: Seq[GeneralTerm] = infoGt.list.getOrElse(Seq.empty)
         val parents: List[String] = parentsGt.list.getOrElse(Seq.empty).flatMap(atom).toList
-        val status: Status = statusOf(infoItems)
-          .getOrElse(throw TptpMappingException(s"Missing status on '${af.name}'"))
+        val status: Status = statusOf(infoItems, af.name)
         val parameters: List[Info] =
           infoItems.filterNot(gt => functor(gt).contains("status")).map(info).toList
         Inference(rule, status, parents, parameters, newSymbolsOf(infoItems), skolemizeOf(infoItems))
@@ -155,14 +154,22 @@ object TptpMapper:
       case Func("skolemize", Seq(v, t)) => atom(v).map(name => Binding(name, generalTerm(t)))
     }.flatten
 
-  /** `status(thm|esa|cth)` from a useful-info list. */
-  private def statusOf(items: Seq[GeneralTerm]): Option[Status] =
-    items.collectFirst { case Func("status", args) => args.headOption.flatMap(atom) }.flatten.flatMap {
-      case "thm" => Some(Status.Thm)
-      case "esa" => Some(Status.Esa)
-      case "cth" => Some(Status.Cth)
-      case _     => None
-    }
+  /** The `status(thm|esa|cth)` of an inference. Several `status(...)` annotations
+    * on one inference are tolerated only if they all agree; a missing status, an
+    * unrecognized status word, or conflicting statuses are all malformed. */
+  private def statusOf(items: Seq[GeneralTerm], name: String): Status =
+    val words: List[String] =
+      items.collect { case Func("status", args) => args.headOption.flatMap(atom) }.flatten.toList
+    words.distinct match
+      case Nil        => throw TptpMappingException(s"Missing status on '$name'")
+      case List(word) => parseStatus(word).getOrElse(throw TptpMappingException(s"unrecognized status '$word' on '$name'"))
+      case many       => throw TptpMappingException(s"conflicting status annotations (${many.mkString(", ")}) on '$name'")
+
+  private def parseStatus(word: String): Option[Status] = word match
+    case "thm" => Some(Status.Thm)
+    case "esa" => Some(Status.Esa)
+    case "cth" => Some(Status.Cth)
+    case _     => None
 
   // ---------------------------------------------------------------------------
   // General-term helpers

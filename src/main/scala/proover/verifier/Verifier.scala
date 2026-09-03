@@ -184,11 +184,13 @@ object Verifier:
       // Phase 2 — per-step verification (leaves against the problem, plain
       // inferences against their parents). The conjecture was set aside above.
       checkConjecture(conj)
+      checkFreeVariables(conj)
       for step <- byName.values do
         checkAxiom(step)
         checkNegatedConjecture(step, conj)
         checkPlainInferenceStep(step, byName)
         checkSkolemization(step, byName)
+        checkFreeVariables(step)
 
       // Phase 3 — the proof must reach its goal.
       checkProvesConjectureOrFalse(conj, byName.values)
@@ -209,6 +211,9 @@ object Verifier:
     /** Record a non-fatal concern (does not affect the verdict). */
     private def warning(message: String): Unit =
       findings += Finding(Severity.Warning, message)
+
+    private def warning(message: String, step: String): Unit =
+      findings += Finding(Severity.Warning, message, Some(step))
 
     // -- Checks ---------------------------------------------------------------
 
@@ -417,7 +422,7 @@ object Verifier:
     private def checkSkolemizationBody(s: Step.Skolemization, byName: Map[String, Step], parentName: String, v: String, t: Term): Unit =
       val parentFormula: Formula = byName(parentName).formula
       t match
-        case Term.App(f, termArgs) if termArgs.forall(_.isInstanceOf[Term.Var]) =>
+        case Term.App(f, termArgs) =>
           val args: List[String]     = termArgs.collect { case Term.Var(n) => n }
           val clashing: List[String] = s.newSymbols.filter(introducedBy.contains)
           if !s.newSymbols.contains(f) then
@@ -429,17 +434,33 @@ object Verifier:
             s.newSymbols.foreach(sym => introducedBy(sym) = s.name)
             skolemReplace(parentFormula, v, t) match
               case Left(why) => error(s"invalid skolemization: $why", s.name)
-              case Right((rebuilt, gov, freeBody)) =>
-                val foreign: Set[String] = args.toSet -- gov
-                val missing: Set[String] = gov.filter(u => freeBody(u) && !args.contains(u))
-                if foreign.nonEmpty then
-                  error(s"skolem term uses out-of-scope variable(s): ${foreign.toList.sorted.mkString(", ")}", s.name)
+              case Right((rebuilt, gov, _)) =>
+                // ProoVer's announced skolemization rule: the Skolem term's
+                // arguments must be *exactly* the governing (effectively-universal)
+                // variables in scope — no more, no fewer. Unlike the plain-TPTP
+                // reading (which imposes no argument constraint), extra arguments —
+                // un-eliminated existentials, constants, compound terms, or
+                // variables outside the parent — are rejected, and every governing
+                // universal must appear even if the body does not mention it
+                // (mini-scoping is not allowed).
+                def render(x: Term): String = x match
+                  case Term.Var(n)      => n
+                  case Term.App(n, Nil) => n
+                  case Term.App(n, as)  => s"$n(${as.map(render).mkString(",")})"
+                val nonVars: List[Term]  = termArgs.filterNot(_.isInstanceOf[Term.Var])
+                val argSet: Set[String]  = args.toSet
+                val extra: Set[String]   = argSet -- gov
+                val missing: Set[String] = gov -- argSet
+                if nonVars.nonEmpty then
+                  error(s"skolem term argument must be a governing universal variable, not '${render(nonVars.head)}'", s.name)
+                else if extra.nonEmpty then
+                  error(s"skolem term takes non-governing argument(s): ${extra.toList.sorted.mkString(", ")}", s.name)
                 else if missing.nonEmpty then
-                  error(s"skolem term omits dependency on ${missing.toList.sorted.mkString(", ")}", s.name)
+                  error(s"skolem term omits governing universal(s): ${missing.toList.sorted.mkString(", ")}", s.name)
                 else if !alphaEquivalent(rebuilt, s.formula) then
                   error("skolemized formula does not match the parent with the existential replaced", s.name)
         case _ =>
-          error("skolem term must be f(x1, …, xn) over variables", s.name)
+          error("skolem term must be a function symbol applied to arguments", s.name)
 
     /** Verify that the proof reaches its goal. Deriving the conjecture directly is
       * always fully correct. Deriving `$false` is fully correct as a refutation
@@ -458,6 +479,30 @@ object Verifier:
       else
         error("no step derives $false or proves the conjecture")
 
+    /** Warn — never error — about free (unbound) variables in a step's formula.
+      * A free variable is sound (TPTP reads it as implicitly universally closed),
+      * so it does not invalidate the proof; it is merely discouraged. */
+    private def checkFreeVariables(step: Step): Unit =
+      val free: Set[String] = freeVars(step.formula)
+      if free.nonEmpty then
+        warning(s"formula has free (unbound) variable(s): ${free.toList.sorted.mkString(", ")}", step.name)
+
+    private def freeVarsT(t: Term): Set[String] = t match
+      case Term.Var(n)     => Set(n)
+      case Term.App(_, as) => as.flatMap(freeVarsT).toSet
+
+    private def freeVars(f: Formula): Set[String] = f match
+      case Formula.Pred(_, as)          => as.flatMap(freeVarsT).toSet
+      case Formula.Eq(l, r)             => freeVarsT(l) ++ freeVarsT(r)
+      case Formula.True | Formula.False => Set.empty
+      case Formula.Not(g)               => freeVars(g)
+      case Formula.And(a, b)            => freeVars(a) ++ freeVars(b)
+      case Formula.Or(a, b)             => freeVars(a) ++ freeVars(b)
+      case Formula.Implies(a, b)        => freeVars(a) ++ freeVars(b)
+      case Formula.Iff(a, b)            => freeVars(a) ++ freeVars(b)
+      case Formula.Forall(v, b)         => freeVars(b) - v
+      case Formula.Exists(v, b)         => freeVars(b) - v
+
     // -- Result assembly ------------------------------------------------------
 
     private def hasError: Boolean = findings.exists(_.severity == Severity.Error)
@@ -470,15 +515,17 @@ object Verifier:
         else SzsStatus.VerifiedGood
       VerificationResult(status, describe(status, all), all)
 
-    private def describe(status: SzsStatus, all: List[Finding]): String = status match
-      case SzsStatus.VerifiedBad =>
-        all.filter(_.severity == Severity.Error).map(_.toString).mkString("; ")
-      case SzsStatus.Timeout =>
-        all.filter(_.severity == Severity.Timeout).map(_.toString).mkString("; ")
-      case SzsStatus.VerifiedGood =>
-        s"${steps.size} step(s) verified"
-      case SzsStatus.Unknown =>
-        ""
+    private def describe(status: SzsStatus, all: List[Finding]): String =
+      val warns: List[String] = all.filter(_.severity == Severity.Warning).map(_.toString)
+      status match
+        case SzsStatus.VerifiedBad =>
+          (all.filter(_.severity == Severity.Error).map(_.toString) ::: warns).mkString("; ")
+        case SzsStatus.Timeout =>
+          (all.filter(_.severity == Severity.Timeout).map(_.toString) ::: warns).mkString("; ")
+        case SzsStatus.VerifiedGood =>
+          (s"${steps.size} step(s) verified" :: warns).mkString("; ")
+        case SzsStatus.Unknown =>
+          ""
 
   /** Formula equality up to consistent renaming of bound variables, decided by
     * canonicalising both formulas to a de Bruijn form and comparing structurally.

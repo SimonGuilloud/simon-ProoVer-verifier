@@ -59,17 +59,31 @@ in scope:
 
 6. The binder of `V` must be effectively existential and of **well-defined
    polarity** (not under `<=>`). A positive `∀V` / negative `∃V` / `Both` is rejected.
-7. **Dependency** (let `gov` = governing universals at the cut, `ψ` = the binder's
-   body): every `arg` of `T` must be in `gov` (no out-of-scope/foreign variable),
-   and every `u ∈ gov` with `u ∈ freeVars(ψ)` must appear in `T`'s arguments
-   (no dropped dependency). Mini-scoping (omitting a `u` that `ψ` does not mention)
-   is allowed.
+7. **Dependency** (let `gov` = governing universals at the cut — which already
+   folds in the parent's free variables, since those are implicitly top-level
+   universals — and `ψ` = the binder's body): every `u ∈ gov` with
+   `u ∈ freeVars(ψ)` must appear in `T`'s arguments (no dropped dependency). This
+   is the **only** constraint on the arguments — TPTP imposes none — so `T` may
+   additionally take any other variables (other universals, un-eliminated
+   existentials, or variables not in the parent at all): all sound, because the
+   fresh symbol can be interpreted to ignore them. Mini-scoping (omitting a `u`
+   that `ψ` does not mention) is likewise allowed.
 8. **Substitution**: the parent with `Q V. ψ` replaced by `subst(ψ, V, T)`
    (capture-avoiding) must be α-equivalent to the step's `formula`.
 
 Why no prover: the prover-checkable direction (`child ⊨ parent`) is the "free"
 one; the critical direction is satisfiability-preservation, certified only by
 B + C above.
+
+**Inner vs. outer existentials (order-independent).** `gov` collects only the
+universals *in scope*; an existential the walk passes through is **not** added to
+it, so it is never a *required* argument. The check does not care whether
+existentials are eliminated outermost- or innermost-first — the required arguments
+are the governing universals either way. For `![X]:?[Y]:?[Z]:r(X,Y,Z)`, skolemizing
+the inner `Z` while `Y` is still `∃` requires `sK0(X)`, just as skolemizing the
+outer `Y` requires `sK0(X)`. Depending *additionally* on an un-eliminated
+existential (`skolemize(Z, sK0(X,Y))`) is **accepted**: it is sound
+(equisatisfiable) and TPTP imposes no argument constraint.
 
 ## Implementation
 
@@ -103,6 +117,10 @@ optional `.expected` substrings).
 - `under_conjunction` — `![X]:(q(X) & ?[Y]:p(X,Y))` ⟶ `![X]:(q(X) & p(X,sK0(X)))`
 - `negative_universal` — `~![Y]:p(Y)` ⟶ `~p(sK0)` (∀ in negative position; nullary)
 - `independent_existential` — `![X]:?[Y]:p(Y)` ⟶ `![X]:p(sK0)` (mini-scope, `X` omitted)
+- `extra_free_var` — `![X]:?[Y]:p(X,Y)` ⟶ `![X]:p(X,sK0(X,Z))`: a term argument (`Z`)
+  not in the parent is sound and accepted (only the *required* `X` is enforced)
+- `existential_arg` — `![X]:?[Y]:?[Z]:r(X,Y,Z)` ⟶ `![X]:?[Y]:r(X,Y,sK0(X,Y))`: the
+  term may depend on an un-eliminated existential (`Y`); unnecessary but sound
 - `parallel_reuse` — the Skolem constant is reused (valid-for-all-`f`) in a
   *parallel* branch (`instantiate` an axiom at `sK0`), outside the introducer's
   descendants; accepted under the two-condition freshness
@@ -114,5 +132,4 @@ optional `.expected` substrings).
 - `status_thm` — valid shape but `status(thm)`
 - `positive_universal` — `skolemize(X, sK0)` on a positive `![X]`
 - `ambiguous_polarity` — existential under `<=>`
-- `foreign_var` — `skolemize(Y, sK0(Z))`, `Z` out of scope
 - `bad_new_symbols` — term head not declared in `new_symbols`
